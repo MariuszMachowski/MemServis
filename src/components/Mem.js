@@ -1,5 +1,5 @@
 import React from 'react';
-import './Mem.css';
+import '../styles/Mem.css';
 
 const Mem = (props) => {
     const thumbUp = props.mem.upvotesOnScreen;

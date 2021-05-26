@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import MemesList from './MemesList';
+import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
+import RegularMemesList from './RegularMemesList';
+import HotMemesList from './HotMemesList';
+import StartPage from './StartPage';
+import ErrorPage from './ErrorPage';
 import nosacz1 from '../img/nosacz1.jpg';
 import nosacz2 from '../img/nosacz2.jpg';
-import nosacz3 from '../img/nosaczWAucie.jpg';
+import nosacz3 from '../img/nosacz6.jpg';
 import nosacz4 from '../img/nosacz4.jpg';
-import './App.css';
+import nosacz5 from '../img/nosacz5.jpg';
+import nosacz7 from '../img/nosacz7.jpg';
+import '../styles/App.css';
 
 class App extends Component {
   state = {
@@ -20,7 +26,7 @@ class App extends Component {
       },
       {
         id: 1,
-        title: "Sprytny nosacz",
+        title: "Nosacz Janusz",
         upvotes: 0,
         upvotesOnScreen: 0,
         downvotesOnScreen: 0,
@@ -29,7 +35,7 @@ class App extends Component {
       },
       {
         id: 2,
-        title: "Nosacz w samchodzie",
+        title: "Gdy sąsiad kupił nowe auto",
         upvotes: 0,
         upvotesOnScreen: 0,
         downvotesOnScreen: 0,
@@ -44,10 +50,27 @@ class App extends Component {
         downvotesOnScreen: 0,
         downvotes: 0,
         img: nosacz4,
+      },
+      {
+        id: 4,
+        title: "Nosacz na zakupach",
+        upvotes: 0,
+        upvotesOnScreen: 0,
+        downvotesOnScreen: 0,
+        downvotes: 0,
+        img: nosacz5,
+      },
+      {
+        id: 5,
+        title: "Level nosacz",
+        upvotes: 0,
+        upvotesOnScreen: 0,
+        downvotesOnScreen: 0,
+        downvotes: 0,
+        img: nosacz7,
       }
 
     ],
-    hot: []
   }
 
   handleThumbUp = (id) => {
@@ -84,9 +107,34 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <MemesList regular={this.state.regular} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
-      </div>
+      <BrowserRouter>
+        <div>
+          <nav>
+            <ul>
+              <li><NavLink className="nav" to="/regular" >Regular</NavLink></li>
+              <li><NavLink className="nav" to="/hot" >Hot</NavLink></li>
+              {/* <li><NavLink className="nav" to="/" exact >Strona startowa</NavLink></li> */}
+            </ul>
+          </nav>
+          <Switch>
+            <Route path='/regular' render={() => (
+              <RegularMemesList regular={this.state.regular} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
+            )} />
+            <Route path='/hot' render={() => (
+              <HotMemesList regular={this.state.regular} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
+            )} />
+            <Route exact path='/' render={() => (
+              <StartPage />
+            )} />
+            <Route render={() => (
+              <ErrorPage />
+            )} />
+
+          </Switch>
+
+
+        </div>
+      </BrowserRouter>
     );
   }
 }
