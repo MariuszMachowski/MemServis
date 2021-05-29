@@ -137,7 +137,7 @@ class App extends Component {
               <RegularMemesList regular={this.state.regular} handleStarChange={this.handleStarChange} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
             )} />
             <Route path='/hot' render={() => (
-              <HotMemesList regular={this.state.regular} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
+              <HotMemesList regular={this.state.regular} handleStarChange={this.handleStarChange} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
             )} />
             <Route exact path='/' render={() => (
               <StartPage />
@@ -147,7 +147,6 @@ class App extends Component {
             )} />
 
           </Switch>
-
 
         </div>
       </BrowserRouter>

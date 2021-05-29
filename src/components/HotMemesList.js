@@ -10,7 +10,7 @@ const HotMemesList = (props) => {
     // console.log(reg);
 
 
-    const hotMemes = hot.map(mem => <Mem key={mem.id} mem={mem} handleThumbUp={props.handleThumbUp} handleThumbDown={props.handleThumbDown} />);
+    const hotMemes = hot.map(mem => <Mem key={mem.id} mem={mem} handleStarChange={props.handleStarChange} handleThumbUp={props.handleThumbUp} handleThumbDown={props.handleThumbDown} />);
     return (
         <>
 

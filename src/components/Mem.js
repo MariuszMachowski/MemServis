@@ -5,7 +5,7 @@ const Mem = (props) => {
     const thumbUp = props.mem.upvotesOnScreen;
     const thumbDown = props.mem.downvotesOnScreen;
     return (
-        <div>
+        <div className="wrapper">
             <h2>{props.mem.title}</h2>
             <div className="mem">
                 <img src={props.mem.img} alt="" />
