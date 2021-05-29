@@ -9,7 +9,7 @@ const RegularMemesList = (props) => {
 
     // console.log(reg);
 
-    const regular = reg.map(mem => <Mem key={mem.id} mem={mem} handleThumbUp={props.handleThumbUp} handleThumbDown={props.handleThumbDown} />);
+    const regular = reg.map(mem => <Mem key={mem.id} mem={mem} handleStarChange={props.handleStarChange} handleThumbUp={props.handleThumbUp} handleThumbDown={props.handleThumbDown} />);
 
     return (
         <>

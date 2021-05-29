@@ -7,7 +7,13 @@ const Mem = (props) => {
     return (
         <div>
             <h2>{props.mem.title}</h2>
-            <div className="mem">       <img src={props.mem.img} alt="" /></div>
+            <div className="mem">
+                <img src={props.mem.img} alt="" />
+            </div>
+            <button className="star" onClick={() => props.handleStarChange(props.mem.id)}>
+                {props.mem.star ? <i class="fas fa-star"></i> : <i class="far fa-star"></i>}
+
+            </button>
             <button onClick={() => props.handleThumbUp(props.mem.id)} className="upvotes"><i class="far fa-thumbs-up"></i> <em> Ocena: {thumbUp}</em></button>
             <button onClick={() => props.handleThumbDown(props.mem.id)} className="downvotes"><i class="far fa-thumbs-down"></i> <em> Ocena: {thumbDown}</em></button>
             <hr />

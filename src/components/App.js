@@ -23,6 +23,7 @@ class App extends Component {
         downvotesOnScreen: 0,
         downvotes: 0,
         img: nosacz1,
+        star: false,
       },
       {
         id: 1,
@@ -32,6 +33,7 @@ class App extends Component {
         downvotesOnScreen: 0,
         downvotes: 0,
         img: nosacz2,
+        star: false,
       },
       {
         id: 2,
@@ -41,6 +43,7 @@ class App extends Component {
         downvotesOnScreen: 0,
         downvotes: 0,
         img: nosacz3,
+        star: false,
       },
       {
         id: 3,
@@ -50,6 +53,7 @@ class App extends Component {
         downvotesOnScreen: 0,
         downvotes: 0,
         img: nosacz4,
+        star: false,
       },
       {
         id: 4,
@@ -59,6 +63,7 @@ class App extends Component {
         downvotesOnScreen: 0,
         downvotes: 0,
         img: nosacz5,
+        star: false,
       },
       {
         id: 5,
@@ -68,6 +73,7 @@ class App extends Component {
         downvotesOnScreen: 0,
         downvotes: 0,
         img: nosacz7,
+        star: false,
       }
 
     ],
@@ -105,6 +111,16 @@ class App extends Component {
 
   }
 
+  handleStarChange = (id) => {
+    let regular = [...this.state.regular];
+    const index = regular.findIndex(memes => memes.id === id);
+    console.log(index);
+    regular[index].star = !regular[index].star;
+    this.setState({ regular });
+
+
+  }
+
   render() {
     return (
       <BrowserRouter>
@@ -118,7 +134,7 @@ class App extends Component {
           </nav>
           <Switch>
             <Route path='/regular' render={() => (
-              <RegularMemesList regular={this.state.regular} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
+              <RegularMemesList regular={this.state.regular} handleStarChange={this.handleStarChange} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
             )} />
             <Route path='/hot' render={() => (
               <HotMemesList regular={this.state.regular} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
