@@ -124,14 +124,14 @@ class App extends Component {
             <ul className="navigation">
               <li><NavLink className="nav" to="/regular" >Regular</NavLink></li>
               <li><NavLink className="nav" to="/hot" >Hot</NavLink></li>
-              <li><NavLink className="nav" to="/star" ><i class="star far fa-star"></i></NavLink></li>
+              <li><NavLink className="nav" to="/star" ><i className="star far fa-star"></i></NavLink></li>
             </ul>
 
 
           </nav>
           <div className="burger" onClick={this.handleMenu}>
-            <i class="fas fa-bars"></i>
-            <i class="fas disp fa-times"></i>
+            <i className="brg fas fa-bars"></i>
+            <i className="brg fas disp fa-times"></i>
           </div>
 
           <Switch>

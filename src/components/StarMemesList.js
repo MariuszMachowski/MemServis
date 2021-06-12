@@ -9,7 +9,7 @@ const StarMemesList = (props) => {
     if (starMemes.length < 1) {
         return (
             <div>
-                <h1 className="description">Memy z <i class="star header far fa-star"></i></h1>
+                <h1 className="description">Memy z <i className="star header far fa-star"></i> :</h1>
                 <h1 className="empty">Brak memów oznaczonych gwiazdką!</h1>
             </div>
         )
@@ -17,7 +17,7 @@ const StarMemesList = (props) => {
         return (
             <  >
                 <div>
-                    <h1 className="description">Memy z gwiazdką :</h1>
+                    <h1 className="description">Memy z <i className="star header far fa-star"></i> :</h1>
                     <hr />
                     {starMemes}
                 </div>

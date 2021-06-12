@@ -11,11 +11,11 @@ const Mem = (props) => {
                 <img src={props.mem.img} alt="" />
             </div>
             <button className="star" onClick={() => props.handleStarChange(props.mem.id)}>
-                {props.mem.star ? <i class="fas fa-star"></i> : <i class="far fa-star"></i>}
+                {props.mem.star ? <i className="fas str fa-star"></i> : <i className="far fa-star"></i>}
 
             </button>
-            <button onClick={() => props.handleThumbUp(props.mem.id)} className="votes upvotes"><i class="far fa-thumbs-up"></i> <em> Ocena: {thumbUp}</em></button>
-            <button onClick={() => props.handleThumbDown(props.mem.id)} className="votes downvotes"><i class="far fa-thumbs-down"></i> <em> Ocena: {thumbDown}</em></button>
+            <button onClick={() => props.handleThumbUp(props.mem.id)} className="votes upvotes"><i className="far fa-thumbs-up"></i> <em> Ocena: {thumbUp}</em></button>
+            <button onClick={() => props.handleThumbDown(props.mem.id)} className="votes downvotes"><i className="far fa-thumbs-down"></i> <em> Ocena: {thumbDown}</em></button>
             <hr />
         </div>
     );
