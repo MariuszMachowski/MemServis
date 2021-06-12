@@ -5,10 +5,6 @@ import '../styles/MemesList.css';
 const RegularMemesList = (props) => {
 
     const reg = props.regular.filter(mem => mem.upvotes - mem.downvotes < 5);
-
-
-    // console.log(reg);
-
     const regular = reg.map(mem => <Mem key={mem.id} mem={mem} handleStarChange={props.handleStarChange} handleThumbUp={props.handleThumbUp} handleThumbDown={props.handleThumbDown} />);
 
     return (

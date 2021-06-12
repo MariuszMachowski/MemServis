@@ -5,24 +5,46 @@
 body{
     background-color: #ddd;
 }
-ul{
+ul.navigation{
     list-style: none;
     position: relative;
+    top: 90px;
+    left: 10px;
+    transition: .3s;
 }
 
-ul li{
+ul.navigation li{
+    position: absolute;
     color: white;
     text-transform: uppercase;
     font-size: 24px;
     font-family: arial;
     font-weight: bold;
-    position: absolute;
-    top: 90px;
-    left: 10px;
+    top: 0;
+    left: 0;
     width: 200px;
 }
-ul li:nth-child(2){
-    top: 140px;
+ul.navigation li:nth-child(2){
+    top: 50px;
+}
+ul.navigation li:nth-child(3){
+    top: 100px;
+}
+.star{
+    color: black;
+}
+
+
+.memBtn{
+    position: absolute;
+    color: black;
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: arial;
+    font-weight: bold;
+    top: 200px;
+    left: 0;
+    width: 206px;
 }
 
 .nav{
@@ -40,11 +62,60 @@ ul li:nth-child(2){
 }
 
 .nav:hover{
-    background-color: #777;
+    background-color: #999;
     color: black;
 }
 
 .active{
     background-color: red;
     color: white;
+}
+
+.active:hover{
+    background-color: red;
+    color: white;
+    cursor: default;
+}
+.active .star{
+    color: white;
+}
+
+
+i.fas{
+    display: none;
+    color: white;
+}
+
+
+@media(max-width:1024px){
+    ul.navigation{
+        left: -210px;
+    }
+    ul.navigation.move{
+        left: 10px;
+    }
+    i.fa-bars{
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        font-size: 40px;
+        cursor: pointer;
+        color: white;
+        padding-right: 20px;
+    }
+    i.fa-times{
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 25px;
+        font-size: 40px;
+        cursor: pointer;
+        color: white;
+        padding-right: 20px;
+    }
+    i.disp{
+        display: none;
+    }
+  
 }

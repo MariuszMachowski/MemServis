@@ -16,7 +16,7 @@ body{
     display: block;
 }
 
-button{
+button.votes{
     padding: 10px 20px;
     background-color: white;
     text-transform: uppercase;
@@ -31,10 +31,10 @@ button{
     transition: .2s;
 }
 
-button:hover{
+button.votes:hover{
     background-color: orange;
 }
-h2{
+h2.title{
     margin-top: 7px;
 }
 
@@ -46,6 +46,7 @@ button.star{
  left: 5px;
  border: none;
  background-color: #ddd;
+ cursor: pointer;
 }
 
 button.star i{
@@ -54,8 +55,34 @@ top: 50%;
 left: 50%;
 transform: translate(-50%,-50%);
 font-size: 40px;
-color: #222;
+color: #777;
 }
 button.star i.fas{
     color: red;
+}
+
+@media(max-width:1024px){
+    button.votes{
+        width: 130px;
+        font-size: 16px;
+        padding: 5px 10px;
+    }
+    button.star{
+        width: 20px;
+        height: 20px;
+        top: -5px;
+        left: -3px;
+       }
+    button.star i{
+        font-size: 30px;
+        }
+    .mem{
+        width: 90vw;
+    }    
+}
+
+@media(max-width:1400px){
+    .mem{
+        width: 400px;
+    }  
 }

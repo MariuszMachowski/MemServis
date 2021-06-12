@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, NavLink, Switch } from "react-router-dom";
 import RegularMemesList from './RegularMemesList';
 import HotMemesList from './HotMemesList';
+import StarMemesList from './StarMemesList';
 import StartPage from './StartPage';
 import ErrorPage from './ErrorPage';
 import nosacz1 from '../img/nosacz1.jpg';
@@ -75,7 +76,6 @@ class App extends Component {
         img: nosacz7,
         star: false,
       }
-
     ],
   }
 
@@ -88,27 +88,15 @@ class App extends Component {
         mem.upvotesOnScreen++;
       }
     })
-
-
-    // regular[index].upvotes++;
-    // regular[index].upvotesOnScreen++;
-
     this.setState({ regular });
-
-
   }
 
   handleThumbDown = (id) => {
     let regular = [...this.state.regular];
     const index = regular.findIndex(memes => memes.id === id);
-
     regular[index].upvotes--;
     regular[index].downvotesOnScreen--;
-
-
     this.setState({ regular });
-
-
   }
 
   handleStarChange = (id) => {
@@ -117,8 +105,15 @@ class App extends Component {
     console.log(index);
     regular[index].star = !regular[index].star;
     this.setState({ regular });
+  }
 
-
+  handleMenu = () => {
+    const navigation = document.querySelector(".navigation");
+    const bars = document.querySelector(".fa-bars");
+    const times = document.querySelector(".fa-times");
+    navigation.classList.toggle("move");
+    bars.classList.toggle("disp");
+    times.classList.toggle("disp");
   }
 
   render() {
@@ -126,18 +121,28 @@ class App extends Component {
       <BrowserRouter>
         <div>
           <nav>
-            <ul>
+            <ul className="navigation">
               <li><NavLink className="nav" to="/regular" >Regular</NavLink></li>
               <li><NavLink className="nav" to="/hot" >Hot</NavLink></li>
-              {/* <li><NavLink className="nav" to="/" exact >Strona startowa</NavLink></li> */}
+              <li><NavLink className="nav" to="/star" ><i class="star far fa-star"></i></NavLink></li>
             </ul>
+
+
           </nav>
+          <div className="burger" onClick={this.handleMenu}>
+            <i class="fas fa-bars"></i>
+            <i class="fas disp fa-times"></i>
+          </div>
+
           <Switch>
             <Route path='/regular' render={() => (
               <RegularMemesList regular={this.state.regular} handleStarChange={this.handleStarChange} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
             )} />
             <Route path='/hot' render={() => (
               <HotMemesList regular={this.state.regular} handleStarChange={this.handleStarChange} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
+            )} />
+            <Route path='/star' render={() => (
+              <StarMemesList regular={this.state.regular} handleStarChange={this.handleStarChange} handleThumbUp={this.handleThumbUp} handleThumbDown={this.handleThumbDown} />
             )} />
             <Route exact path='/' render={() => (
               <StartPage />
